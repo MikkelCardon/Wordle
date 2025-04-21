@@ -6,10 +6,15 @@ import storage.Storage;
 import java.util.ArrayList;
 
 public class Controller {
-    private static int blockID = 1;
-    private static String wordToGuess = "HELLO";
+    private int blockID;
+    private String wordToGuess;
 
-    public static void keyPressed(){
+    public Controller() {
+        blockID = 1;
+        wordToGuess = Storage.getRandomWord();
+    }
+
+    public void keyPressed(){
         Block block = Storage.returnBlockByID(blockID);
         if(checkValidInput()){
             block.setText(block.getText().toUpperCase());
@@ -39,7 +44,7 @@ public class Controller {
         return Character.isLetter(input);
     }
 
-    private static void lastCellInRow() {
+    private void lastCellInRow() {
         int wordToGuessIndex = 0;
 
         for (int index = blockID-4; index <= blockID; index++) {
@@ -65,11 +70,11 @@ public class Controller {
         block.requestFocus();
     }
 
-    public static String getWordToGuess() {
+    public String getWordToGuess() {
         return wordToGuess;
     }
 
-    public static ArrayList<Block> getCurrentRow(){
+    public ArrayList<Block> getCurrentRow(){
         ArrayList<Block> currentRow = new ArrayList<>();
 
         for (int index = blockID-4; index <= blockID; index++) {
