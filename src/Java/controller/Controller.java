@@ -1,7 +1,6 @@
 package controller;
 
 import gui.cutomElement.Block;
-import javafx.event.Event;
 import storage.Storage;
 
 public class Controller {

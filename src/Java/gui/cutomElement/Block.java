@@ -26,7 +26,7 @@ public class Block extends TextField {
     }
 
     public void doesContainLetter(){
-        this.setStyle("-fx-border-color: yellow; -fx-border-width: 1.5;");
+        this.setStyle("-fx-border-color: orange; -fx-border-width: 1.5;");
     }
 
     public void correctPosition(){
