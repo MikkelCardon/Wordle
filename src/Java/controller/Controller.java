@@ -22,6 +22,10 @@ public class Controller {
         }
 
         Block block = Storage.returnBlockByID(blockID);
+        if (!block.getText().isEmpty()){
+            return;
+        }
+
         if(checkValidInput(input)){
             block.setText(input.toUpperCase());
         }else{
