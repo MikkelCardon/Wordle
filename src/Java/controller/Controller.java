@@ -6,16 +6,21 @@ import storage.Storage;
 
 public class Controller {
     private static int blockID = 1;
-    private static String wordToGuess = "Hello";
+    private static String wordToGuess = "HELLO";
 
     public static void keyPressed(){
+        Block block = Storage.returnBlockByID(blockID);
         if(checkValidInput()){
-
+            block.setText(block.getText().toUpperCase());
+        }else{
+            block.clear();
+            return;
         }
 
 
         if (blockID % 5 == 0){
             lastCellInRow();
+            nextCell();
         }else{
             nextCell();
         }
