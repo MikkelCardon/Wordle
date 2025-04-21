@@ -1,6 +1,9 @@
 package gui.cutomElement;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import storage.Storage;
 
 public class Block extends TextField {
@@ -12,6 +15,8 @@ public class Block extends TextField {
         this.setMinSize(size, size);
         this.setMaxSize(size, size);
         this.setStyle("-fx-border-color: black; -fx-border-width: 1.5;");
+        this.setAlignment(Pos.CENTER);
+        this.setFont(Font.font("System", FontWeight.BOLD, 16));
         id = count++;
         Storage.addBlock(this);
     }
@@ -38,4 +43,6 @@ public class Block extends TextField {
                 "id=" + id +
                 '}';
     }
+
+
 }
