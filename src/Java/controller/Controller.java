@@ -3,6 +3,8 @@ package controller;
 import gui.cutomElement.Block;
 import storage.Storage;
 
+import java.util.ArrayList;
+
 public class Controller {
     private static int blockID = 1;
     private static String wordToGuess = "HELLO";
@@ -54,12 +56,25 @@ public class Controller {
         }
 
         if (blockID >= 30){
-            nextCell();
+            new GameOutput(getCurrentRow(), true);
         }
     }
 
     private static void nextCell() {
         Block block = Storage.returnBlockByID(++blockID);
         block.requestFocus();
+    }
+
+    public static String getWordToGuess() {
+        return wordToGuess;
+    }
+
+    public static ArrayList<Block> getCurrentRow(){
+        ArrayList<Block> currentRow = new ArrayList<>();
+
+        for (int index = blockID-4; index <= blockID; index++) {
+            currentRow.add(Storage.returnBlockByID(index));
+        }
+        return currentRow;
     }
 }
