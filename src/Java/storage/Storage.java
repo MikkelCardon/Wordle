@@ -13,6 +13,11 @@ public class Storage {
         return blocks;
     }
 
+    public static void addBlock(Block block){
+        blocks.put(block.getBlockID(), block);
+        System.out.println("BLOCK ADDED: " + block);
+    }
+
     public static Block returnBlockByID(int id){
         return blocks.get(id);
     }
