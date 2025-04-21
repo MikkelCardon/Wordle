@@ -26,15 +26,19 @@ public class Block extends TextField {
     }
 
     public void doesNotContainLetter(){
-        this.setStyle("-fx-border-color: red; -fx-border-width: 1.5;");
+        //this.setStyle("-fx-border-color: red; -fx-border-width: 1.5;");
+        this.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;");
+
     }
 
     public void doesContainLetter(){
-        this.setStyle("-fx-border-color: orange; -fx-border-width: 1.5;");
+        //this.setStyle("-fx-border-color: orange; -fx-border-width: 1.5;");
+        this.setStyle("-fx-background-color: orange; -fx-text-fill: white; -fx-font-weight: bold;");
     }
 
     public void correctPosition(){
-        this.setStyle("-fx-border-color: green; -fx-border-width: 1.5;");
+        //this.setStyle("-fx-border-color: green; -fx-border-width: 1.5;");
+        this.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-font-weight: bold;");
     }
 
     public int getBlockID() {
