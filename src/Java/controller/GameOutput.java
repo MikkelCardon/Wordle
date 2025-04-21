@@ -6,10 +6,12 @@ import javafx.scene.control.Alert;
 import java.util.ArrayList;
 
 public class GameOutput {
-    private ArrayList<Block> row = new ArrayList<>();
+    private String gussedWord;
+    private String wordToGuess;
 
-    public GameOutput(ArrayList<Block> row, boolean isLastRow) {
-        this.row = row;
+    public GameOutput(String gussedWord, boolean isLastRow, String wordToGuess) {
+        this.gussedWord = gussedWord;
+        this.wordToGuess = wordToGuess;
 
         isGameWon();
 
@@ -19,17 +21,14 @@ public class GameOutput {
     }
 
     public void isGameWon(){
-        StringBuilder rowWord = new StringBuilder();
-        for (Block block : row) {
-            rowWord.append(block.getText());
-        }
-
-        if (rowWord.equals(Controller.getWordToGuess())){
-
+        if (gussedWord.equals(wordToGuess)){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("YOU WON");
+            System.out.println("You won");
         }
     }
 
     public void isGameLost(){
-
+        System.out.println("You lost");
     }
 }

@@ -29,14 +29,15 @@ public class PrimaryWindow extends Application {
     }
 
     private void initLayout(VBox root) {
-        root.setOnKeyReleased(event -> Controller.keyPressed());
-
         Label titel = new Label("WORDLE by Cardon");
         titel.setFont(Font.font("Impact", FontWeight.BOLD, 24));
 
         root.getChildren().add(titel);
 
         initTextFields(root);
+
+        Controller controller = new Controller();
+        root.setOnKeyReleased(event -> controller.keyPressed(event.getCode(), event.getText()));
     }
 
     private void initTextFields(VBox root){

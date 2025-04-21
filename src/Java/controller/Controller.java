@@ -1,23 +1,29 @@
 package controller;
 
 import gui.cutomElement.Block;
+import javafx.scene.input.KeyCode;
 import storage.Storage;
-
-import java.util.ArrayList;
 
 public class Controller {
     private int blockID;
     private String wordToGuess;
 
     public Controller() {
-        blockID = 1;
+        blockID = 0;
         wordToGuess = Storage.getRandomWord();
+        nextCell();
+        System.out.println(wordToGuess);
     }
 
-    public void keyPressed(){
+    public void keyPressed(KeyCode keyCode, String input){
+        if (keyCode == KeyCode.BACK_SPACE){
+            previousCell();
+            return;
+        }
+
         Block block = Storage.returnBlockByID(blockID);
-        if(checkValidInput()){
-            block.setText(block.getText().toUpperCase());
+        if(checkValidInput(input)){
+            block.setText(input.toUpperCase());
         }else{
             block.clear();
             return;
@@ -26,14 +32,12 @@ public class Controller {
 
         if (blockID % 5 == 0){
             lastCellInRow();
-            nextCell();
         }else{
             nextCell();
         }
     }
 
-    private static boolean checkValidInput() {
-        String text = Storage.returnBlockByID(blockID).getText();
+    private boolean checkValidInput(String text) {
 
         if (text == null || text.length() != 1) {
             return false;
@@ -45,6 +49,11 @@ public class Controller {
     }
 
     private void lastCellInRow() {
+        if (!Storage.getWords().contains(gussedWord())){
+            System.out.println("WORD NOT FOUND");
+            return;
+        }
+
         int wordToGuessIndex = 0;
 
         for (int index = blockID-4; index <= blockID; index++) {
@@ -61,12 +70,28 @@ public class Controller {
         }
 
         if (blockID >= 30){
-            new GameOutput(getCurrentRow(), true);
+            new GameOutput(gussedWord(), true, wordToGuess);
+        }else {
+            new GameOutput(gussedWord(), false, wordToGuess);
+            nextCell();
         }
     }
 
-    private static void nextCell() {
+    private void nextCell() {
         Block block = Storage.returnBlockByID(++blockID);
+        block.requestFocus();
+    }
+
+    private void previousCell() {
+        if ((blockID-1) % 5 == 0){ //Kan ikke gå tilbage efter man har afsluttet en række
+            return;
+        }
+        Block block = Storage.returnBlockByID(blockID);
+        if (block.getText().isEmpty()){
+            block = Storage.returnBlockByID(--blockID);;
+        }
+
+        block.clear();
         block.requestFocus();
     }
 
@@ -74,12 +99,12 @@ public class Controller {
         return wordToGuess;
     }
 
-    public ArrayList<Block> getCurrentRow(){
-        ArrayList<Block> currentRow = new ArrayList<>();
+    public String gussedWord(){
+        String text = "";
 
         for (int index = blockID-4; index <= blockID; index++) {
-            currentRow.add(Storage.returnBlockByID(index));
+            text += Storage.returnBlockByID(index).getText();
         }
-        return currentRow;
+        return text;
     }
 }

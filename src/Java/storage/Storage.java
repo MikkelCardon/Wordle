@@ -16,7 +16,7 @@ public class Storage {
 
     public static void addBlock(Block block){
         blocks.put(block.getBlockID(), block);
-        System.out.println("BLOCK ADDED: " + block);
+        System.out.println(block);
     }
 
     public static Block returnBlockByID(int id){
@@ -33,10 +33,15 @@ public class Storage {
         try {
             Scanner scanner = new Scanner(new File("src/Java/storage/5letterWords"));
             while (scanner.hasNext()){
-                words.add(scanner.next());
+                words.add(scanner.next().toUpperCase());
             }
+            scanner.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static ArrayList<String> getWords() {
+        return words;
     }
 }

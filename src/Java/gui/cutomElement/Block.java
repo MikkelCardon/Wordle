@@ -17,6 +17,10 @@ public class Block extends TextField {
         this.setStyle("-fx-border-color: black; -fx-border-width: 1.5;");
         this.setAlignment(Pos.CENTER);
         this.setFont(Font.font("System", FontWeight.BOLD, 16));
+
+        this.setEditable(false);
+        this.setFocusTraversable(false);
+
         id = count++;
         Storage.addBlock(this);
     }
