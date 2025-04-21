@@ -25,6 +25,10 @@ public class PrimaryWindow extends Application {
     }
 
     private void initTextFields(GridPane gridPane){
-        gridPane.add(new Block(), 0, 0);
+        for (int outer = 0; outer < 6; outer++) {
+            for (int inner = 0; inner < 5; inner++) {
+                gridPane.add(new Block(), inner, outer+1);
+            }
+        }
     }
 }
