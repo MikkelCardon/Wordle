@@ -1,5 +1,6 @@
 package gui;
 
+import controller.Controller;
 import gui.cutomElement.Block;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,6 +22,8 @@ public class PrimaryWindow extends Application {
         gridPane.setHgap(10);
         gridPane.setVgap(10);
 
+        gridPane.setOnKeyReleased(event -> Controller.keyPressed(event));
+
         initTextFields(gridPane);
     }
 
@@ -31,4 +34,6 @@ public class PrimaryWindow extends Application {
             }
         }
     }
+
+
 }

@@ -5,12 +5,15 @@ import storage.Storage;
 
 public class Block extends TextField {
     private final int size = 50;
+    private static int count = 0;
+    private int id;
 
     public Block() {
         this.setMinSize(size, size);
         this.setMaxSize(size, size);
         this.setStyle("-fx-border-color: black; -fx-border-width: 1.5;");
         Storage.getBlocks().add(this);
+        id = count++;
     }
 
     public void doesNotContainLetter(){
@@ -25,5 +28,7 @@ public class Block extends TextField {
         this.setStyle("-fx-border-color: green; -fx-border-width: 1.5;");
     }
 
-
+    public int getBlockID() {
+        return id;
+    }
 }
