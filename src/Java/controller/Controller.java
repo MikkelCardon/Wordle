@@ -3,7 +3,9 @@ package controller;
 import javafx.event.Event;
 
 public class Controller {
-    public static void keyPressed(Event event){
-        event.getEventType()
+    private int blockID;
+
+    public static void keyPressed(){
+
     }
 }

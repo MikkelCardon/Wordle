@@ -22,7 +22,7 @@ public class PrimaryWindow extends Application {
         gridPane.setHgap(10);
         gridPane.setVgap(10);
 
-        gridPane.setOnKeyReleased(event -> Controller.keyPressed(event));
+        gridPane.setOnKeyReleased(event -> Controller.keyPressed());
 
         initTextFields(gridPane);
     }

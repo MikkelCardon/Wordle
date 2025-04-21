@@ -12,7 +12,7 @@ public class Block extends TextField {
         this.setMinSize(size, size);
         this.setMaxSize(size, size);
         this.setStyle("-fx-border-color: black; -fx-border-width: 1.5;");
-        Storage.getBlocks().add(this);
+        Storage.getBlocks().put(id, this);
         id = count++;
     }
 
