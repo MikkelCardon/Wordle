@@ -1,9 +1,7 @@
 package controller;
 
-import gui.cutomElement.Block;
-import javafx.scene.control.Alert;
-
-import java.util.ArrayList;
+import gui.customElement.LosePopUp;
+import gui.customElement.WinPopUp;
 
 public class GameOutput {
     private String gussedWord;
@@ -22,13 +20,13 @@ public class GameOutput {
 
     public void isGameWon(){
         if (gussedWord.equals(wordToGuess)){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("YOU WON");
+            new WinPopUp();
             System.out.println("You won");
         }
     }
 
     public void isGameLost(){
+        new LosePopUp();
         System.out.println("You lost");
     }
 }
