@@ -1,6 +1,6 @@
 package storage;
 
-import gui.cutomElement.Block;
+import gui.customElement.Block;
 
 import java.io.File;
 import java.io.FileNotFoundException;
