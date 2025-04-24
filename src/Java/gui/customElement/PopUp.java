@@ -14,7 +14,7 @@ public class PopUp extends GridPane {
         super();
         this.setHgap(15);
         this.setVgap(15);
-        this.setPrefSize(50, 50);
+        this.setMaxSize(200, 100);
         this.titel = titel;
         this.message = message;
         styling();
