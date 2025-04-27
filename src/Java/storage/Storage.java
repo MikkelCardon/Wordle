@@ -9,6 +9,7 @@ import java.util.*;
 public class Storage {
     private static HashMap<Integer, Block> blocks = new HashMap<>();
     private static ArrayList<String> words = new ArrayList<>();
+    private static WordFinder wordFinder = new GetDanishWords();
 
     public static HashMap<Integer,Block> getBlocks() {
         return blocks;
@@ -30,15 +31,7 @@ public class Storage {
     }
 
     public static void initWords() {
-        try {
-            Scanner scanner = new Scanner(new File("src/Java/storage/5letterWords"));
-            while (scanner.hasNext()){
-                words.add(scanner.next().toUpperCase());
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+            wordFinder.getWords(words);
     }
 
     public static ArrayList<String> getWords() {
