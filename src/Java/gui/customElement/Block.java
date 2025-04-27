@@ -1,4 +1,4 @@
-package gui.cutomElement;
+package gui.customElement;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
@@ -50,6 +50,10 @@ public class Block extends TextField {
         return "Block{" +
                 "id=" + id +
                 '}';
+    }
+
+    public static void resetCount(){
+        count = 1;
     }
 
 

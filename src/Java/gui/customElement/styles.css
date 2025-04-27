@@ -1,9 +1,8 @@
 .primary-gridpane {
-    -fx-border-color: black;
-    -fx-border-width: 1.5;
 }
 
 .popup-gridpane {
     -fx-border-color: red;
     -fx-border-width: 2;
+    -fx-background-color: #cccccc; /* light grey background */
 }

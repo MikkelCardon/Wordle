@@ -1,18 +1,30 @@
 package controller;
 
-import gui.cutomElement.Block;
+import gui.GameElements;
+import gui.customElement.Block;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.StackPane;
 import storage.Storage;
 
 public class Controller {
-    private int blockID;
+    private int blockID = 0;
     private String wordToGuess;
+    private StackPane stackPane;
 
-    public Controller() {
+    public Controller(StackPane stackPane) {
+        this.stackPane = stackPane;
+    }
+
+    public void newGame(){
+        stackPane.getChildren().clear();
         blockID = 0;
+        Block.resetCount();
+        Storage.getBlocks().clear();
         wordToGuess = Storage.getRandomWord();
+        new GameElements(this);
+
         nextCell();
-        System.out.println(wordToGuess);
+        System.out.println("New game:" + wordToGuess);
     }
 
     public void keyPressed(KeyCode keyCode, String input){

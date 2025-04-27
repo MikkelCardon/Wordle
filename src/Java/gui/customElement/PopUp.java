@@ -1,20 +1,22 @@
-package gui.cutomElement;
+package gui.customElement;
 
 import gui.PrimaryWindow;
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 
 public class PopUp extends GridPane {
     private String titel;
     private String message;
 
-    public PopUp() {
-        super(50, 30);
+    public PopUp(String titel, String message) {
+        super();
+        this.setHgap(15);
+        this.setVgap(15);
+        this.setMaxSize(200, 100);
+        this.titel = titel;
+        this.message = message;
         styling();
         showPopUp();
     }
@@ -31,7 +33,7 @@ public class PopUp extends GridPane {
         messageLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #555;");
 
         Button newGameButton = new Button("New Game");
-        //newGameButton.setOnAction(event -> );
+        newGameButton.setOnAction(event -> PrimaryWindow.getController().newGame());
 
         this.add(titelLabel, 0, 0);
         this.add(messageLabel, 0, 1);

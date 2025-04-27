@@ -1,6 +1,6 @@
 package storage;
 
-import gui.cutomElement.Block;
+import gui.customElement.Block;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +16,7 @@ public class Storage {
 
     public static void addBlock(Block block){
         blocks.put(block.getBlockID(), block);
-        System.out.println(block);
+        //System.out.println(block);
     }
 
     public static Block returnBlockByID(int id){
