@@ -16,7 +16,7 @@ public class Storage {
 
     public static void addBlock(Block block){
         blocks.put(block.getBlockID(), block);
-        System.out.println(block);
+        //System.out.println(block);
     }
 
     public static Block returnBlockByID(int id){
