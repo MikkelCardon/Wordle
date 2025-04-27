@@ -37,4 +37,8 @@ public class Storage {
     public static ArrayList<String> getWords() {
         return words;
     }
+
+    public static WordFinder getWordFinder() {
+        return wordFinder;
+    }
 }

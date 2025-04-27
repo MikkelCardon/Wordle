@@ -61,7 +61,7 @@ public class Controller {
 
         char input = text.charAt(0);
 
-        return Character.isLetter(input);
+        return Character.isLetter(input) || Storage.getWordFinder().charactersToInclude().contains(input);
     }
 
     private void lastCellInRow() {
